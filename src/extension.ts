@@ -4,10 +4,10 @@ import { ActiveEvent, Exporter } from "./types";
 
 export function activate(context: vscode.ExtensionContext) {
   const activeEvents: ActiveEvent[] | undefined = vscode.workspace
-    .getConfiguration("telemetry")
+    .getConfiguration("telemetry-activity-tracker")
     .get("activeEvents");
   const exporters: Exporter[] | undefined = vscode.workspace
-    .getConfiguration("telemetry")
+    .getConfiguration("telemetry-activity-tracker")
     .get("exporters");
 
   const processedExporters =

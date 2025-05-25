@@ -1,10 +1,10 @@
 {
-  "name": "telemetry",
-  "displayName": "Telemetry",
+  "name": "telemetry-activity-tracker",
+  "displayName": "Telemetry Activity Tracker",
   "description": "",
-  "version": "0.0.8",
-  "repository": "https://github.com/educational-technology-collective/vscode-telemetry",
-  "publisher": "educational-technology-collective",
+  "version": "0.0.2",
+  "repository": "https://github.com/Taremeh/vscode-activity-tracker",
+  "publisher": "HASEL-alakmeh",
   "engines": {
     "vscode": "^1.84.0"
   },
@@ -17,15 +17,11 @@
   "main": "./dist/extension.js",
   "contributes": {
     "configuration": {
-      "title": "Telemetry",
+      "title": "Activity Tracker",
       "properties": {
-        "telemetry.activeEvents": {
+        "telemetry-activity-tracker.activeEvents": {
           "type": "array",
           "default": [
-            {
-              "name": "DocumentOpenEvent",
-              "logWholeDocument": true
-            },
             {
               "name": "DocumentChangeEvent",
               "logWholeDocument": false
@@ -37,36 +33,33 @@
             {
               "name": "DocumentSaveEvent",
               "logWholeDocument": false
+            },
+            {
+              "name": "ActiveEditorChangeEvent",
+              "logWholeDocument": false
             }
           ],
           "description": "Active events settings"
         },
-        "telemetry.exporters": {
+        "telemetry-activity-tracker.exporters": {
           "type": "array",
           "default": [
             {
-              "type": "console_exporter"
+              "type": "file_exporter",
+              "args": {
+                "id": "LocalFile",
+                "path": "./telemetry.log"
+              }
             },
             {
               "type": "remote_exporter",
               "args": {
-                "id": "InfluxDB",
-                "url": "https://68ltdi5iij.execute-api.us-east-1.amazonaws.com/influx-vscode",
+                "id": "Dataport",
+                "url": "https://dataport.alakmeh.ch/vscode_activity_receiver.php",
                 "params": {
-                  "influx_bucket": "telemetry_dev",
-                  "influx_measurement": "vscode"
+                  "sample_parameter": "test"
                 }
-              },
-              "activeEvents": [
-                {
-                  "name": "DocumentOpenEvent",
-                  "logWholeDocument": true
-                },
-                {
-                  "name": "DocumentChangeEvent",
-                  "logWholeDocument": false
-                }
-              ]
+              }
             }
           ],
           "description": "Exporter settings"
@@ -98,6 +91,7 @@
     "prettier": "3.0.3",
     "ts-loader": "^9.5.0",
     "typescript": "^5.2.2",
+    "vsce": "^2.15.0",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   }

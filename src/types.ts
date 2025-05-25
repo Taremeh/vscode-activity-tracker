@@ -60,6 +60,7 @@ export interface Config {
 }
 
 export interface EventData {
+  codespaceName: string; // Name of the codespace
   eventName: string;
   eventTime: number;
   sessionId: string;
