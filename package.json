@@ -37,6 +37,10 @@
             {
               "name": "ActiveEditorChangeEvent",
               "logWholeDocument": false
+            },
+            {
+              "name": "WindowStateChangeEvent",
+              "logWholeDocument": false
             }
           ],
           "description": "Active events settings"
