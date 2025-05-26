@@ -2,7 +2,7 @@
   "name": "telemetry-activity-tracker",
   "displayName": "Telemetry Activity Tracker",
   "description": "VS Code Telemetry Activity Tracker",
-  "icon": "./telemetry_activity_tracker_icon.png",
+  "icon": "img/telemetry_activity_tracker_icon_hq.png",
   "version": "0.0.4",
   "repository": "https://github.com/Taremeh/vscode-activity-tracker",
   "publisher": "HASEL-alakmeh",
